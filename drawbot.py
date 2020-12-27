@@ -4,7 +4,7 @@ import tkinter.font
 import time
 import colorama
 from colorama import Fore, Back, Style
-
+import turtle
 colorama.init(autoreset=True)
 import math
 
@@ -31,6 +31,7 @@ def function():
     print("Scanning Screen-Size...")
     time.sleep(3)
     print(Fore.MAGENTA + "Your Screen size is:" + screensize)
+    time.sleep(2)
     print(Fore.GREEN + "OK!")
     print("Open A Painting Canvas To Begin Drawing!")
     time.sleep(5)
@@ -51,18 +52,26 @@ def function():
 
 # Circle Function
 def circle():
-    time.sleep(5)
-    pyautogui.click()
-    R = 400
-    (x, y) = pyautogui.position()
-    (X, Y) = pyautogui.position(x / 2, y / 2)
-    for i in range(360):
-        pyautogui.moveTo(X + R * math.cos(math.radians(i)), Y + R * math.sin(math.radians(i)))
+    et = turtle.bgcolor('black')
+    turtle.setup(800, 600)
+
+    board = turtle.Turtle()
+    board.color("white")
+    for i in range(20):
+        board.circle(40)
+        board.right(36)
 
 
-# Triangle Function
+    turtle.done()
+    # Triangle Function
 def triangle():
-    print("Triangle")
+    pyautogui.click();
+    distancing = 250
+    while distancing > 0:
+        pyautogui.dragRel(distancing * 12, 0, duration=0.5)  # right
+        pyautogui.dragRel(4, distancing, duration=0.5)  # down
+        pyautogui.dragRel(-distancing* 2, 9, duration=0.5)  # left
+        pyautogui.dragRel(12, -distancing, duration=0.5)  # up
 
 
 help = Fore.YELLOW + '''
@@ -75,7 +84,7 @@ help = Fore.YELLOW + '''
 |[+}-S start                          |
 |ex. python3 drawbot.py -S -D         |
 |-------------------------------------|'''
-paint = print(Fore.GREEN + "[Open a painting canvas for this to work!]")
+paint = print(Fore.GREEN + "[Open a painting canvas for Square to work!]")
 info = print(Fore.YELLOW + "python3 drawbot.py -h for help command")
 screensize = str(pyautogui.size())
 type = ["Square", "Triangle", "Circle"]
@@ -113,17 +122,26 @@ elif command == "python3 drawbot.py -S -D Triangle":
     print("Scanning Screen-Size...")
     time.sleep(3)
     print(Fore.MAGENTA + "Your Screen size is:" + screensize)
+    time.sleep(2)
     print(Fore.GREEN + "OK!")
     print("Open A Painting Canvas To Begin Drawing!")
+    time.sleep(5)
     triangle()
-elif command == "python3 drawbot.py -D -S Circle":
+elif command == "python3 drawbot.py -S -D Circle":
     print("Starting...")
     time.sleep(2)
     print("Scanning Screen-Size...")
     time.sleep(3)
     print(Fore.MAGENTA + "Your Screen size is:" + screensize)
+    time.sleep(2)
     print(Fore.GREEN + "OK!")
-    print("Open A Painting Canvas To Begin Drawing!")
+    print("Wait for it..")
+    time.sleep(2)
+    print("Wait for it...")
+    time.sleep(2)
+    print(Fore.GREEN + "OK!")
+    circle()
+
     circle()
 
 elif command == type[0]:

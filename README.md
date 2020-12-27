@@ -5,8 +5,11 @@ ___
 ## Features:
 * Draw Shapes
 * Accuracy
-* Less bugs
+* Cool
 * Fun! :>
+
+## Con:
+* Bugs!
 
 ## git clone https://github.com/FonderElite/Draw-Bot
 

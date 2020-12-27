@@ -8,3 +8,5 @@ ___
 * Less bugs
 * Fun! :>
 
+## git clone https://github.com/FonderElite/Draw-Bot
+

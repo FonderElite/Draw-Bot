@@ -141,8 +141,8 @@ elif command == "python3 drawbot.py -S -D Circle":
     time.sleep(2)
     print(Fore.GREEN + "OK!")
     circle()
-
-    circle()
+#Execute
+    
 
 elif command == type[0]:
     print("Scanning Screen-Size...")

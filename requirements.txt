@@ -1,0 +1,7 @@
+os
+pyautogui
+tkinter.font
+time
+colorama
+turtle
+ math

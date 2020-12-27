@@ -73,6 +73,38 @@ def triangle():
         pyautogui.dragRel(-distancing* 2, 9, duration=0.5)  # left
         pyautogui.dragRel(12, -distancing, duration=0.5)  # up
 
+def skull():
+    print(Fore.RED + '''
+                            ,--.
+                           {    }
+                           K,   }
+                          /  ~Y`
+                     ,   /   /
+                    {_'-K.__/
+                      `/-.__L._
+                      /  ' /`\_}
+                     /  ' /
+             ____   /  ' /
+      ,-'~~~~    ~~/  ' /_
+    ,'             ``~~~  ',
+   (                        Y
+  {                         I
+ {      -                    `,
+ |       ',                   )
+ |        |   ,..__      __. Y
+ |    .,_./  Y ' / ^Y   J   )|
+ \           |' /   |   |   ||
+  \          L_/    . _ (_,.'(
+   \,   ,      ^^""' / |      )
+     \_  \          /,L]     /
+       '-_~-,       ` `   ./`
+          `'{_            )
+              ^^\..___,.--` 
+''')
+    print(Fore.YELLOW +
+          '''Thank you for using my tool :> 
+          ~FonderElite
+          ''')
 
 help = Fore.YELLOW + '''
  |------------------------------------|
@@ -81,21 +113,32 @@ help = Fore.YELLOW + '''
 |[+]-d drawable                       |
 |[+]-D Draw                           |
 |[+]-s screen size                    |
-|[+}-S start                          |
+|[+]-S start                          |
+|[+]-i install                        |
+|[+]-u update                         |
 |ex. python3 drawbot.py -S -D         |
 |-------------------------------------|'''
-paint = print(Fore.GREEN + "[Open a painting canvas for Square to work!]")
+paint = print(Fore.GREEN + "[Open a painting canvas to start drawing!]")
 info = print(Fore.YELLOW + "python3 drawbot.py -h for help command")
 screensize = str(pyautogui.size())
 type = ["Square", "Triangle", "Circle"]
 this = "[+]"
 command = input(Fore.CYAN + this + "Input a command: ")
+
 if command == "python3 drawbot.py -h":
     print(help)
-    print("Try again.")
 elif command == "python3 drawbot.py":
     print(help)
-    print("Try again.")
+elif command == "python3 drawbot.py -i":
+    print("Preparing to install...")
+    time.sleep(2)
+    print(os.system("sudo bash install.sh"))
+    print(Fore.GREEN + "DONE!")
+elif command == "python3 drawbot.py -u":
+    print("Updating...")
+    time.sleep(4)
+    print(os.system("git clone https://github.com/FonderElite/Draw-Bot"))
+    print(Fore.GREEN + "DONE!")
 elif command == "python3 drawbot.py -d":
     print(Fore.YELLOW + '''
           .:'
@@ -116,6 +159,7 @@ elif command == "python3 drawbot.py -S -D Square":
     print("Starting...")
     time.sleep(2)
     function()
+    skull()
 elif command == "python3 drawbot.py -S -D Triangle":
     print("Starting...")
     time.sleep(2)
@@ -127,6 +171,7 @@ elif command == "python3 drawbot.py -S -D Triangle":
     print("Open A Painting Canvas To Begin Drawing!")
     time.sleep(5)
     triangle()
+    skull()
 elif command == "python3 drawbot.py -S -D Circle":
     print("Starting...")
     time.sleep(2)
@@ -141,8 +186,7 @@ elif command == "python3 drawbot.py -S -D Circle":
     time.sleep(2)
     print(Fore.GREEN + "OK!")
     circle()
-#Execute
-    
+    skull()
 
 elif command == type[0]:
     print("Scanning Screen-Size...")
@@ -175,38 +219,7 @@ else:
 : :: ::   :   : :  :   : :  : :. :   :   : : :.: 
 
     ''')
-print(Fore.RED + '''
-                            ,--.
-                           {    }
-                           K,   }
-                          /  ~Y`
-                     ,   /   /
-                    {_'-K.__/
-                      `/-.__L._
-                      /  ' /`\_}
-                     /  ' /
-             ____   /  ' /
-      ,-'~~~~    ~~/  ' /_
-    ,'             ``~~~  ',
-   (                        Y
-  {                         I
- {      -                    `,
- |       ',                   )
- |        |   ,..__      __. Y
- |    .,_./  Y ' / ^Y   J   )|
- \           |' /   |   |   ||
-  \          L_/    . _ (_,.'(
-   \,   ,      ^^""' / |      )
-     \_  \          /,L]     /
-       '-_~-,       ` `   ./`
-          `'{_            )
-              ^^\..___,.--` 
-''')
-print(Fore.YELLOW + '''
 
-Thank you for using my tool :>
-~Fonder-Elite
-''')
 #
 # Radius
 # R = 400

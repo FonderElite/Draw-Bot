@@ -25,7 +25,7 @@
 # 🧑‍🔧 Features to be added:
 - More Drawings coming soon!(probably shapes)
 
-🤳 Socials
+# 🤳 Socials
 * Github: https://github.com/FonderElite
 * Twitter: https://twitter.com/elitefonder
 * Discord: https://discord.gg/tFrDTkUB

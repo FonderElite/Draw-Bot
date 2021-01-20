@@ -6,8 +6,9 @@ import colorama
 from colorama import Fore, Back, Style
 import turtle
 colorama.init(autoreset=True)
+import platform
 import math
-
+os = platform
 print(Fore.CYAN + '''
  ██████████                                       ███████████            █████   
 ░░███░░░░███                                     ░░███░░░░░███          ░░███    
@@ -68,10 +69,21 @@ def triangle():
     pyautogui.click();
     distancing = 250
     while distancing > 0:
-        pyautogui.dragRel(distancing * 12, 0, duration=0.5)  # right
+        pyautogui.dragRel(distancing * 12, 6.5, duration=0.5)  # right
         pyautogui.dragRel(4, distancing, duration=0.5)  # down
         pyautogui.dragRel(-distancing* 2, 9, duration=0.5)  # left
         pyautogui.dragRel(12, -distancing, duration=0.5)  # up
+def sun():
+    turtle.bgcolor("black")
+    turtle.color('red', 'yellow')
+    turtle.begin_fill()
+    while True:
+        turtle.forward(200)
+        turtle.left(170)
+        if abs(turtle.pos()) < 1:
+            break
+    turtle.end_fill()
+    turtle.done()
 
 def skull():
     print(Fore.RED + '''
@@ -107,7 +119,7 @@ def skull():
           ''')
 
 help = Fore.YELLOW + '''
- |------------------------------------|
+|-------------------------------------|
 |[+]Commands:                         |
 |[+]-h help                           |
 |[+]-d drawable                       |
@@ -116,51 +128,52 @@ help = Fore.YELLOW + '''
 |[+]-S start                          |
 |[+]-i install                        |
 |[+]-u update                         |
-|ex. python3 drawbot.py -S -D         |
+|ex. python3 drawbot.py -S -D Square  |
 |-------------------------------------|'''
 paint = print(Fore.GREEN + "[Open a painting canvas to start drawing!]")
 info = print(Fore.YELLOW + "python3 drawbot.py -h for help command")
 screensize = str(pyautogui.size())
-type = ["Square", "Triangle", "Circle"]
+type = ["Square", "Triangle", "Circle","Sun"]
 this = "[+]"
-command = input(Fore.CYAN + this + "Input a command: ")
+while True:
+ command = input(Fore.CYAN + this + "Input a command: ")
 
-if command == "python3 drawbot.py -h":
+ if command == "./drawbot -h":
     print(help)
-elif command == "python3 drawbot.py":
+ elif command == "./drawbot":
     print(help)
-elif command == "python3 drawbot.py -i":
+ elif command == "./drawbot -i":
     print("Preparing to install...")
     time.sleep(2)
     print(os.system("sudo bash install.sh"))
     print(Fore.GREEN + "DONE!")
-elif command == "python3 drawbot.py -u":
+ elif command == "./drawbot -u":
     print("Updating...")
     time.sleep(4)
     print(os.system("git clone https://github.com/FonderElite/Draw-Bot"))
     print(Fore.GREEN + "DONE!")
-elif command == "python3 drawbot.py -d":
+ elif command == "./drawbot -d":
     print(Fore.YELLOW + '''
           .:'
       __ :'__
    .'`__`-'__``. [+]Square
   :__________.-' [+]Circle
   :_________:    [+]Triangle
-   :_________`-;
+   :_________`-; [+]Sun
     `.__.-.__.'
     ''')
-elif command == "python3 drawbot.py -s":
+ elif command == "./drawbot -s":
     print("Scanning Screen-Size...")
     time.sleep(3)
     nice = Fore.MAGENTA + ">>Your Screen size is:"
     size = str(pyautogui.size())
     print(nice + size)
-elif command == "python3 drawbot.py -S -D Square":
+ elif command == "./drawbot -S -D Square":
     print("Starting...")
     time.sleep(2)
     function()
     skull()
-elif command == "python3 drawbot.py -S -D Triangle":
+ elif command == "./drawbot -S -D Triangle":
     print("Starting...")
     time.sleep(2)
     print("Scanning Screen-Size...")
@@ -172,7 +185,7 @@ elif command == "python3 drawbot.py -S -D Triangle":
     time.sleep(5)
     triangle()
     skull()
-elif command == "python3 drawbot.py -S -D Circle":
+ elif command == "./drawbot -S -D Circle":
     print("Starting...")
     time.sleep(2)
     print("Scanning Screen-Size...")
@@ -188,7 +201,7 @@ elif command == "python3 drawbot.py -S -D Circle":
     circle()
     skull()
 
-elif command == type[0]:
+ elif command == type[0]:
     print("Scanning Screen-Size...")
     time.sleep(3)
     print(Fore.MAGENTA + "Your Screen size is:" + screensize)
@@ -208,8 +221,15 @@ elif command == type[0]:
         distance = distance - 5
 
         pyautogui.dragRel(0, -distance, duration=0.2)  # move up
-
-else:
+ elif command == './drawbot -S -D Sun':
+     print("Scanning Screen-Size...")
+     time.sleep(3)
+     print(Fore.MAGENTA + "Your Screen size is:" + screensize)
+     print(Fore.GREEN + "OK!")
+     print("Check Turtle Graphics!")
+     time.sleep(2)
+     sun()
+ else:
     print(Fore.RED + '''
 
 @@@@@@@@ @@@@@@@  @@@@@@@   @@@@@@  @@@@@@@  @@@ 
@@ -219,8 +239,10 @@ else:
 : :: ::   :   : :  :   : :  : :. :   :   : : :.: 
 
     ''')
-
-#
+    try:
+         os == "Linux"
+    except:
+         pyautogui.alert("Directory: C:\Program Files has been deleted")
 # Radius
 # R = 400
 # measuring screen size

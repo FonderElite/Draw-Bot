@@ -13,7 +13,7 @@
 - Draw Rectangle
 - Draw Triangle
 - Draw Sun
-<img src="https://365psd.com/images/previews/740/graphite-pencil-vector-icon-eps-28532.jpg" style="width:5%;height:10%;">
+<img src="https://cdn.pixabay.com/photo/2013/07/12/13/29/pencil-147130__340.png" style="width:5%;height:10%;">
 
 #  🏆Advantages
 * Free
